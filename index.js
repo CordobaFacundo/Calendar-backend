@@ -2,6 +2,7 @@
 
 const express = require('express');
 require('dotenv').config(); //Cargar las variables de entorno desde el archivo .env
+const { dbConnection } = require('./database/config');
 
 
 
@@ -9,6 +10,9 @@ require('dotenv').config(); //Cargar las variables de entorno desde el archivo .
 
 //Crear el servidor de express
 const app = express();
+
+//Base de datos
+dbConnection();
 
 //Directorio público
 app.use(express.static('public'));
